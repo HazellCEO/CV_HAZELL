@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("tema")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="light"}</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hobi | Hazell Samuel Lopulalan</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+<style>
+/* Hobi: kartu potret + efek scroll modern */
+.hobby-slider{counter-reset:h;gap:1.1rem;padding:.6rem calc(50% - min(165px,37vw)) 1.4rem;scrollbar-width:none}
+.hobby-slider::-webkit-scrollbar{display:none}
+.hobby-slider .hobby-photo-card{position:relative;flex:0 0 min(330px,74vw);aspect-ratio:9/16;border:0;border-radius:24px;color:#fff;scroll-snap-align:center;counter-increment:h;box-shadow:0 18px 40px rgba(8,14,20,.28);will-change:transform}
+.js .hobby-slider .hobby-photo-card.reveal-on-scroll{opacity:0;transform:translateY(28px) scale(.94);transition:opacity .6s,transform .45s cubic-bezier(.2,.7,.2,1)}
+.js .hobby-slider .hobby-photo-card.reveal-on-scroll.is-visible{opacity:var(--o,1);transform:scale(var(--s,1))}
+.js .hobby-slider .hobby-photo-card.reveal-on-scroll.is-visible:hover{transform:translateY(-8px) scale(var(--s,1))}
+.hobby-slider .hobby-photo{position:absolute;top:0;left:-24px;width:calc(100% + 48px);max-width:none;height:100%;object-fit:cover;transform:translateX(var(--px,0px));transition:filter .4s}
+.hobby-slider .hobby-photo-card:hover .hobby-photo{transform:translateX(var(--px,0px)) scale(1.05)}
+.hobby-photo-card::before{content:"0" counter(h);position:absolute;top:1.1rem;left:1.3rem;z-index:2;font:600 1rem var(--font-head);letter-spacing:.12em;color:#fff;opacity:.9}
+.hobby-photo-card .card-body{position:absolute;inset:auto 0 0;z-index:2;padding:6rem 1.5rem 1.6rem;background:linear-gradient(to top,rgba(8,14,20,.92) 8%,rgba(8,14,20,.6) 55%,transparent)}
+.hobby-photo-card h3{color:#fff;font-size:1.65rem}
+.hobby-photo-card .text-secondary{color:rgba(255,255,255,.82)!important;font-size:.95rem;margin-bottom:.9rem}
+.hobby-photo-card .hobby-category{color:#fff;background:rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.hobby-photo-card .hobby-photo-tag{color:#fff;border-color:rgba(255,255,255,.4)}
+.hobby-progress{height:3px;border-radius:3px;background:var(--line);margin:.4rem auto 0;max-width:260px;overflow:hidden}
+.hobby-progress span{display:block;height:100%;width:var(--w,16%);background:var(--accent);border-radius:3px;transition:width .15s}
+</style>
+</head>
+
+<body>
+<div class="scroll-bar"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand brand" href="index.html">
+                <span class="brand-mark">H</span>
+                Hazell
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarUtama"
+                aria-controls="navbarUtama"
+                aria-expanded="false"
+                aria-label="Buka navigasi">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarUtama">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tentang.html">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pendidikan.html">Pendidikan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="hobi.html">FUN FACT</a>
+                    </li>
+
+                </ul>
+                <button class="theme-toggle" type="button" aria-label="Ganti tema terang/gelap"><i class="bi bi-moon-stars"></i></button>
+            </div>
+
+        </div>
+    </nav>
+
+
+<!-- HEADER -->
+<header class="page-header hobby-header">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-8">
+        <span class="hobby-label">
+          <i class="bi bi-stars me-2"></i>
+          DI LUAR AKTIVITAS KULIAH
+        </span>
+
+        <h1 class="display-4 fw-bold mt-3">Hobi & Minat Saya</h1>
+
+        <p class="lead mt-3 mb-0">
+          Mengenal hal-hal yang saya sukai, aktivitas yang
+          menginspirasi, dan cara saya mengembangkan diri
+          di luar kegiatan akademik.
+        </p>
+      </div>
+
+      <div class="col-lg-4 text-center">
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- PEMBUKA -->
+  <section class="hobby-intro">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <span class="hobby-label">SEDIKIT TENTANG SAYA</span>
+          <h2 class="sec-title mt-3 mb-3">Hal sederhana yang memberi inspirasi</h2>
+
+          <p class="text-secondary mb-3">
+            Bagi saya, hobi bukan hanya kegiatan untuk mengisi
+            waktu luang, tetapi juga kesempatan untuk mencoba
+            hal baru, mengasah kreativitas, dan menemukan
+            pengalaman yang menarik.
+          </p>
+
+          <p class="text-secondary mb-0">
+            Melalui berbagai aktivitas yang saya sukai, saya
+            ingin terus belajar, menjaga keseimbangan aktivitas,
+            dan mengembangkan potensi diri.
+          </p>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="hobby-note">
+            <i class="bi bi-lightbulb-fill"></i>
+            <h3 class="h5 mt-3">Ruang untuk berkembang</h3>
+            <p class="mb-0">
+              Setiap hobi punya cara tersendiri untuk melatih
+              kreativitas, konsistensi, dan cara berpikir.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- DAFTAR HOBI HORIZONTAL -->
+<section class="bg-sand hobby-gallery">
+  <div class="container">
+
+    <div class="hobby-gallery-heading">
+      <div>
+        <span class="hobby-label">YANG SAYA SUKAI</span>
+        <h2 class="sec-title mt-2 mb-2">Hobi Favorit</h2>
+        <p class="text-secondary mb-0">
+          Hal-hal sederhana yang membuat waktu luang lebih bermakna.
+        </p>
+      </div>
+
+      <div class="slider-nav"><button type="button" aria-label="Sebelumnya"><i class="bi bi-arrow-left"></i></button><button type="button" aria-label="Berikutnya"><i class="bi bi-arrow-right"></i></button></div>
+    </div>
+
+    <div class="hobby-slider">
+
+      <!-- HOBI 1 -->
+      <article class="card hobby-photo-card">
+        <img
+          src="img/Tech.webp"
+          class="hobby-photo"
+          alt="Aktivitas menggunakan komputer dan teknologi"
+          loading="lazy">
+
+        <div class="card-body">
+          <span class="hobby-category">TEKNOLOGI</span>
+          <h3 class="h4 mt-2">TECH Enthusiast</h3>
+          <p class="text-secondary">
+            Membuat program dan website serta mencoba teknologi baru.
+          </p>
+          <span class="hobby-photo-tag">
+            <i class="bi bi-code-slash me-1"></i> Pemrograman
+          </span>
+        </div>
+      </article>
+
+      <!-- HOBI 2 -->
+      <article class="card hobby-photo-card">
+        <img
+          src="img/basket.jpg"
+          class="hobby-photo"
+          alt="Peralatan menggambar dan melukis"
+          loading="lazy">
+
+        <div class="card-body">
+          <span class="hobby-category">SPORTS</span>
+          <h3 class="h4 mt-2">Basket</h3>
+          <p class="text-secondary">
+            Olahraga strategi, melatih kerja sama tim 
+          </p>
+          <span class="hobby-photo-tag">
+            <i class="bi bi-palette me-1"></i> Sports
+          </span>
+        </div>
+      </article>
+
+      <!-- HOBI 3 -->
+      <article class="card hobby-photo-card">
+        <img
+          src="img/music.jpeg"
+          class="hobby-photo"
+          alt="Peralatan musik di studio"
+          loading="lazy">
+
+        <div class="card-body">
+          <span class="hobby-category">HIBURAN</span>
+          <h3 class="h4 mt-2">Musik</h3>
+          <p class="text-secondary">
+            Menikmati musik untuk menemani aktivitas sehari-hari.
+          </p>
+          <span class="hobby-photo-tag">
+            <i class="bi bi-headphones me-1"></i> Relaksasi
+          </span>
+        </div>
+      </article>
+
+      <!-- HOBI 4 -->
+      <article class="card hobby-photo-card">
+        <img
+          src="img/Travel.jpg"
+          class="hobby-photo"
+          alt="Perangkat komputer untuk bermain game"
+          loading="lazy">
+
+        <div class="card-body">
+          <span class="hobby-category">HIBURAN</span>
+          <h3 class="h4 mt-2">Traveling</h3>
+          <p class="text-secondary">
+            Menikmati perjalanan
+          </p>
+          <span class="hobby-photo-tag">
+            <i class="bi bi-stars me-1"></i> Travel
+          </span>
+        </div>
+      </article>
+
+      <!-- HOBI 5 -->
+      <article class="card hobby-photo-card">
+        <img
+          src="img/alam.jpg"
+          class="hobby-photo"
+          alt="Rak buku di perpustakaan"
+          loading="lazy">
+
+        <div class="card-body">
+          <span class="hobby-category">NATURE ADVENTURE</span>
+          <h3 class="h4 mt-2">Explorer</h3>
+          <p class="text-secondary">
+            Menjelajahi dan mengangumi landscape alam
+          </p>
+          <span class="hobby-photo-tag">
+            <i class="bi bi-info-circle me-1"></i> Nature 
+          </span>
+        </div>
+      </article>
+
+      <!-- HOBI 6 -->
+      <article class="card hobby-photo-card">
+        <img
+          src="img/fotografi.jpg"
+          class="hobby-photo"
+          alt="Kamera untuk fotografi"
+          loading="lazy">
+
+        <div class="card-body">
+          <span class="hobby-category">EKSPLORASI</span>
+          <h3 class="h4 mt-2">Fotografi</h3>
+          <p class="text-secondary">
+            Mengabadikan momen dan mengeksplorasi sudut pandang.
+          </p>
+          <span class="hobby-photo-tag">
+            <i class="bi bi-camera me-1"></i> Visual
+          </span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="hobby-progress" aria-hidden="true"><span></span></div>
+
+    <p class="hobby-gallery-footer">
+      <i class="bi bi-info-circle me-1"></i>
+      Gunakan scroll horizontal atau geser kartu untuk melihat hobi lainnya.
+    </p>
+
+  </div>
+</section>
+
+
+  <!-- PENUTUP -->
+  <section class="hobby-closing">
+    <div class="container text-center">
+      <div class="hobby-closing-icon">
+        <i class="bi bi-stars"></i>
+      </div>
+
+      <h2 class="h2 mt-4 mb-3">
+        Terus Menemukan Hal Baru
+      </h2>
+
+      <p class="mx-auto mb-4">
+        Saya percaya bahwa pengalaman tidak hanya datang
+        dari ruang kelas. Setiap minat dan aktivitas dapat
+        menjadi kesempatan untuk mengenal diri sendiri
+        dan mempelajari sesuatu yang baru.
+      </p>
+
+      <a href="tentang.html#kontak" class="btn btn-teal btn-lg">
+        Hubungi Saya
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <a href="index.html" class="footer-brand"><span class="brand-mark">H</span> Hazell</a>
+    <small>&copy; <span id="tahun">2026</span> Hazell Samuel Lopulalan</small>
+  </div>
+</footer>
+<button class="back-to-top" id="backToTop" type="button" aria-label="Kembali ke atas"><i class="bi bi-arrow-up"></i></button>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+// Efek scroll kartu hobi: kartu di tengah membesar, lainnya meredup, foto bergeser halus
+(() => {
+  const sl = document.querySelector(".hobby-slider"); if (!sl) return;
+  const cards = [...sl.querySelectorAll(".hobby-photo-card")], bar = document.querySelector(".hobby-progress span");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches; let t = false;
+  const update = () => {
+    t = false;
+    const c = sl.getBoundingClientRect(), mid = c.left + c.width / 2;
+    if (!reduce) cards.forEach(k => {
+      const r = k.getBoundingClientRect(), off = (r.left + r.width / 2 - mid) / c.width, d = Math.min(1, Math.abs(off) * 1.6);
+      k.style.setProperty("--s", (1 - d * .07).toFixed(3));
+      k.style.setProperty("--o", (1 - d * .4).toFixed(3));
+      k.style.setProperty("--px", (off * -36).toFixed(1) + "px");
+    });
+    if (bar) { const m = sl.scrollWidth - sl.clientWidth, p = m > 0 ? sl.scrollLeft / m : 0, w = 100 / cards.length; bar.style.setProperty("--w", (w + (100 - w) * p).toFixed(1) + "%"); }
+  };
+  const tick = () => { if (!t) { t = true; requestAnimationFrame(update); } };
+  sl.addEventListener("scroll", tick, { passive: true }); addEventListener("resize", tick); addEventListener("load", tick); update();
+})();
+</script>
+</body>
+</html>
